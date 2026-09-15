@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnw5vqgtuqsf1"]
+
+[ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://assets/textures/characters/TrashMan.png" id="1_ucweq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
+size = Vector2(13, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
+size = Vector2(12, 15)
+
+[node name="Player" type="CharacterBody2D" unique_id=1183082063]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1366925000]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("1_ucweq")
+
+[node name="FeetCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905670102]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_nhypo")
+
+[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=51647880]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_08t41")
