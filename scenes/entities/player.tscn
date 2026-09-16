@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnw5vqgtuqsf1"]
 
 [ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://assets/textures/characters/TrashMan.png" id="1_ucweq"]
+[ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://scripts/entities/player_controller.gd" id="2_08t41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
 size = Vector2(13, 2)
@@ -22,3 +23,7 @@ shape = SubResource("RectangleShape2D_nhypo")
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=51647880]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_08t41")
+
+[node name="PlayerController" type="Node" parent="." unique_id=650550996 node_paths=PackedStringArray("player_base_node")]
+script = ExtResource("2_08t41")
+player_base_node = NodePath("..")
