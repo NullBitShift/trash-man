@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://pkoyfxa11pab"]
 
+[ext_resource type="Script" uid="uid://eqexlrvcur5q" path="res://scripts/objects/trash.gd" id="1_3c0t2"]
 [ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://assets/textures/objects/trash-sheet.png" id="1_ge76f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhypo"]
@@ -11,6 +12,7 @@ size = Vector2(20, 24)
 
 [node name="Trash" type="Area2D" unique_id=243181150]
 collision_layer = 2
+script = ExtResource("1_3c0t2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754526705]
 texture_filter = 1
@@ -19,3 +21,5 @@ texture = SubResource("AtlasTexture_nhypo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014814923]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_bbku0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
