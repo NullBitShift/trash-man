@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pkoyfxa11pab"]
+
+[ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://assets/textures/objects/trash-sheet.png" id="1_ge76f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhypo"]
+atlas = ExtResource("1_ge76f")
+region = Rect2(35, 96, 25, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbku0"]
+size = Vector2(20, 24)
+
+[node name="Trash" type="Area2D" unique_id=243181150]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754526705]
+texture_filter = 1
+texture = SubResource("AtlasTexture_nhypo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014814923]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_bbku0")
