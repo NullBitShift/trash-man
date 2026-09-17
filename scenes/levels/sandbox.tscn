@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://scenes/objects/trash.tscn" id="1_h320y"]
 [ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://scenes/entities/player.tscn" id="2_xf1sy"]
+[ext_resource type="PackedScene" uid="uid://dp6dnuacwxj60" path="res://scenes/objects/trash_can.tscn" id="3_xf1sy"]
 
 [node name="Sandbox" type="Node2D" unique_id=294289494]
 
@@ -10,3 +11,6 @@ position = Vector2(253, 111)
 
 [node name="Player" parent="." unique_id=1183082063 groups=["player"] instance=ExtResource("2_xf1sy")]
 position = Vector2(204, 92)
+
+[node name="TrashCan" parent="." unique_id=946715010 instance=ExtResource("3_xf1sy")]
+position = Vector2(251, 180)
