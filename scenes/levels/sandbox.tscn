@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://by7eioic034ei"]
+
+[ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://scenes/objects/trash.tscn" id="1_h320y"]
+[ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://scenes/entities/player.tscn" id="2_xf1sy"]
+
+[node name="Sandbox" type="Node2D" unique_id=294289494]
+
+[node name="Trash" parent="." unique_id=243181150 instance=ExtResource("1_h320y")]
+position = Vector2(253, 111)
+
+[node name="Player" parent="." unique_id=1183082063 groups=["player"] instance=ExtResource("2_xf1sy")]
+position = Vector2(204, 92)
