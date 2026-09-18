@@ -7,12 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
 size = Vector2(13, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
-size = Vector2(12, 15)
-
 [sub_resource type="Resource" id="Resource_nhypo"]
 script = ExtResource("3_1ie0h")
 metadata/_custom_type_script = "uid://btphie4bjdhh8"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
+size = Vector2(12, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=1183082063]
 
@@ -25,11 +25,13 @@ texture = ExtResource("1_ucweq")
 position = Vector2(-0.5, 16)
 shape = SubResource("RectangleShape2D_nhypo")
 
-[node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." unique_id=51647880]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_08t41")
-
 [node name="PlayerController" type="Node" parent="." unique_id=650550996 node_paths=PackedStringArray("player_base_node")]
 script = ExtResource("2_08t41")
 player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
+
+[node name="PickupCollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=51647880]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_08t41")

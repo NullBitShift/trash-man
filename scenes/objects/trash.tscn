@@ -22,4 +22,4 @@ texture = SubResource("AtlasTexture_nhypo")
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_bbku0")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
