@@ -10,9 +10,11 @@ region = Rect2(35, 96, 25, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbku0"]
 size = Vector2(20, 24)
 
-[node name="Trash" type="Area2D" unique_id=243181150]
+[node name="Trash" type="Area2D" unique_id=243181150 node_paths=PackedStringArray("sprite_node") groups=["trash"]]
 collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_3c0t2")
+sprite_node = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754526705]
 texture_filter = 1

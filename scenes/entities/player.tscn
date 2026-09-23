@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://assets/textures/characters/TrashMan.png" id="1_ucweq"]
 [ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://scripts/entities/player_controller.gd" id="2_08t41"]
 [ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://scripts/resources/movement_strategy.gd" id="3_1ie0h"]
+[ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://scripts/objects/bag_component.gd" id="4_5u6hq"]
 [ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://assets/textures/objects/trashBag.png" id="4_42nxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
@@ -12,10 +13,10 @@ size = Vector2(13, 2)
 script = ExtResource("3_1ie0h")
 metadata/_custom_type_script = "uid://btphie4bjdhh8"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u6hq"]
 size = Vector2(12, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u6hq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
 size = Vector2(12, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=1183082063]
@@ -34,14 +35,10 @@ script = ExtResource("2_08t41")
 player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
 
-[node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
-visible = false
-
-[node name="PickupCollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=51647880]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_08t41")
-
 [node name="BagComponent" type="Area2D" parent="." unique_id=1166233139 groups=["bag"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_5u6hq")
 
 [node name="Sprite2D" type="Sprite2D" parent="BagComponent" unique_id=143506196]
 texture_filter = 1
@@ -55,3 +52,13 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BagComponent" unique_id=2131317022]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_5u6hq")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
+visible = false
+
+[node name="PickupCollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=51647880]
+visible = false
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_08t41")
+
+[connection signal="area_entered" from="BagComponent" to="BagComponent" method="_on_area_entered"]

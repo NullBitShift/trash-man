@@ -1,8 +1,8 @@
+class_name Trash
 extends Area2D
 
-signal trash_collected
+@export var trash_data: TrashData
+@export var sprite_node: Sprite2D 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		trash_collected.emit()
-		queue_free()
+func _ready() -> void:
+	sprite_node.texture = trash_data.icon

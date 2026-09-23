@@ -1,13 +1,38 @@
 [gd_scene format=3 uid="uid://by7eioic034ei"]
 
 [ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://scenes/objects/trash.tscn" id="1_h320y"]
+[ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://assets/textures/objects/trash-sheet.png" id="2_b4sxl"]
 [ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://scenes/entities/player.tscn" id="2_xf1sy"]
+[ext_resource type="Script" uid="uid://ycdfochylwib" path="res://scripts/resources/trash_data.gd" id="3_qm7gn"]
 [ext_resource type="PackedScene" uid="uid://dp6dnuacwxj60" path="res://scenes/objects/trash_can.tscn" id="3_xf1sy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4lrq"]
+atlas = ExtResource("2_b4sxl")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="Resource" id="Resource_3c0t2"]
+script = ExtResource("3_qm7gn")
+item_name = "Cup Trash"
+icon = SubResource("AtlasTexture_u4lrq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4kwl"]
+atlas = ExtResource("2_b4sxl")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="Resource" id="Resource_5oy5n"]
+script = ExtResource("3_qm7gn")
+item_name = "Can Trash"
+icon = SubResource("AtlasTexture_f4kwl")
 
 [node name="Sandbox" type="Node2D" unique_id=294289494]
 
 [node name="Trash" parent="." unique_id=243181150 instance=ExtResource("1_h320y")]
 position = Vector2(253, 111)
+trash_data = SubResource("Resource_3c0t2")
+
+[node name="Trash2" parent="." unique_id=2101957829 instance=ExtResource("1_h320y")]
+position = Vector2(310, 155)
+trash_data = SubResource("Resource_5oy5n")
 
 [node name="Player" parent="." unique_id=1183082063 groups=["player"] instance=ExtResource("2_xf1sy")]
 position = Vector2(204, 92)
