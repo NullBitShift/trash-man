@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://assets/textures/characters/TrashMan.png" id="1_ucweq"]
 [ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://scripts/entities/player_controller.gd" id="2_08t41"]
 [ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://scripts/resources/movement_strategy.gd" id="3_1ie0h"]
+[ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://assets/textures/objects/trashBag.png" id="4_42nxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
 size = Vector2(13, 2)
@@ -12,6 +13,9 @@ script = ExtResource("3_1ie0h")
 metadata/_custom_type_script = "uid://btphie4bjdhh8"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
+size = Vector2(12, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u6hq"]
 size = Vector2(12, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=1183082063]
@@ -31,7 +35,23 @@ player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
+visible = false
 
 [node name="PickupCollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=51647880]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_08t41")
+
+[node name="BagComponent" type="Area2D" parent="." unique_id=1166233139 groups=["bag"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="BagComponent" unique_id=143506196]
+texture_filter = 1
+position = Vector2(10, -3)
+scale = Vector2(0.1, 0.5)
+texture = ExtResource("4_42nxq")
+offset = Vector2(-6.95, 10.025)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BagComponent" unique_id=2131317022]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_5u6hq")
