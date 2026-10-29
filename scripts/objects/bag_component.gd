@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var bag_opening: Marker2D
+
 var trash_collected: Array[TrashData]
 
 func _on_area_entered(area: Area2D) -> void:
@@ -12,7 +14,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func collect_trash(trash: Trash) -> void:
 	trash_collected.append(trash.trash_data)
-	trash.queue_free()
+	trash.pickup(bag_opening)
 
 func deposit_trash(trash_can: TrashCan) -> void:
 	if trash_can.has_method("trigger_cooldown"):
