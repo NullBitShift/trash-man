@@ -15,13 +15,12 @@ func collect_trash(trash: Trash) -> void:
 	trash.queue_free()
 
 func deposit_trash(trash_can: TrashCan) -> void:
-	var trash = trash_collected.pop_back()
-	if trash == null:
-		return
-
 	if trash_can.has_method("trigger_cooldown"):
 		if trash_can.animation_is_playing():
-			trash_collected.append(trash)
+			return
 		else:
+			var trash = trash_collected.pop_back()
+			if trash == null:
+				return
 			# TODO: add coin
 			trash_can.trigger_cooldown()
