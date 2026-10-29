@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://scripts/resources/movement_strategy.gd" id="3_1ie0h"]
 [ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://scripts/objects/bag_component.gd" id="4_5u6hq"]
 [ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://assets/textures/objects/trashBag.png" id="4_42nxq"]
+[ext_resource type="PackedScene" uid="uid://dheuh6pxeg3mv" path="res://scenes/objects/thrown_trash.tscn" id="5_d4qa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
 size = Vector2(13, 2)
@@ -40,6 +41,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_5u6hq")
 bag_opening = NodePath("BagOpening")
+thrown_trash_scene = ExtResource("5_d4qa6")
 
 [node name="Sprite2D" type="Sprite2D" parent="BagComponent" unique_id=143506196]
 texture_filter = 1

@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var bag_opening: Marker2D
+@export var thrown_trash_scene: PackedScene
 
 var trash_collected: Array[TrashData]
 
@@ -21,8 +22,11 @@ func deposit_trash(trash_can: TrashCan) -> void:
 		if trash_can.animation_is_playing():
 			return
 		else:
-			var trash = trash_collected.pop_back()
-			if trash == null:
+			var trash_data = trash_collected.pop_back()
+			if trash_data == null:
 				return
+			var thrown_trash = thrown_trash_scene.instantiate() as ThrownTrash
+			trash_can.add_child(thrown_trash)
+			thrown_trash.setup(trash_data.icon, global_position, trash_can.global_position)
 			# TODO: add coin
 			trash_can.trigger_cooldown()

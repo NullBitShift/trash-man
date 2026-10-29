@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dheuh6pxeg3mv"]
+
+[ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://assets/textures/objects/trash-sheet.png" id="2_ayu37"]
+[ext_resource type="Script" path="res://scripts/objects/thrown_trash.gd" id="2_fdjaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhypo"]
+atlas = ExtResource("2_ayu37")
+region = Rect2(35, 96, 25, 32)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=901709206]
+texture_filter = 1
+texture = SubResource("AtlasTexture_nhypo")
+script = ExtResource("2_fdjaa")
