@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp6dnuacwxj60"]
 
-[ext_resource type="Script" uid="uid://d0ghshitwvpmo" path="res://scripts/objects/trash_can.gd" id="1_m16y3"]
-[ext_resource type="Texture2D" uid="uid://ckf78b48hu873" path="res://assets/textures/objects/TrashCanFiller.png" id="1_tcfh6"]
+[ext_resource type="Script" uid="uid://d0ghshitwvpmo" path="res://objects/trash_can/trash_can.gd" id="1_m16y3"]
+[ext_resource type="Texture2D" uid="uid://ckf78b48hu873" path="res://objects/trash_can/TrashCanFiller.png" id="1_tcfh6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m16y3"]
 atlas = ExtResource("1_tcfh6")

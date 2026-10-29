@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cnw5vqgtuqsf1"]
 
-[ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://assets/textures/characters/TrashMan.png" id="1_ucweq"]
-[ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://scripts/entities/player_controller.gd" id="2_08t41"]
-[ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://scripts/resources/movement_strategy.gd" id="3_1ie0h"]
-[ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://scripts/objects/bag_component.gd" id="4_5u6hq"]
-[ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://assets/textures/objects/trashBag.png" id="4_42nxq"]
-[ext_resource type="PackedScene" uid="uid://dheuh6pxeg3mv" path="res://scenes/objects/thrown_trash.tscn" id="5_d4qa6"]
+[ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://entities/player/TrashMan.png" id="1_8fjmc"]
+[ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://entities/player/player_controller.gd" id="2_8fjmc"]
+[ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://resources/movement_strategy.gd" id="3_1ie0h"]
+[ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://entities/player/bag_component.gd" id="4_5u6hq"]
+[ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://entities/player/trashBag.png" id="4_42nxq"]
+[ext_resource type="PackedScene" uid="uid://dheuh6pxeg3mv" path="res://objects/thrown_trash/thrown_trash.tscn" id="5_d4qa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhypo"]
 size = Vector2(13, 2)
@@ -25,14 +25,14 @@ size = Vector2(12, 15)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1366925000]
 texture_filter = 1
 position = Vector2(0, 1)
-texture = ExtResource("1_ucweq")
+texture = ExtResource("1_8fjmc")
 
 [node name="FeetCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905670102]
 position = Vector2(-0.5, 16)
 shape = SubResource("RectangleShape2D_nhypo")
 
 [node name="PlayerController" type="Node" parent="." unique_id=650550996 node_paths=PackedStringArray("player_base_node")]
-script = ExtResource("2_08t41")
+script = ExtResource("2_8fjmc")
 player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
 

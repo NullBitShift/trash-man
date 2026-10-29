@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ery46pc4n7b7"
-path="res://.godot/imported/trash-sheet.png-b654160e81329f1b083ab9874ff25ed8.ctex"
+uid="uid://bu1snsn4rkvpk"
+path="res://.godot/imported/trashBag.png-36d9a40a6806da9c307f0f1de00e520c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/trash-sheet.png"
-dest_files=["res://.godot/imported/trash-sheet.png-b654160e81329f1b083ab9874ff25ed8.ctex"]
+source_file="res://entities/player/trashBag.png"
+dest_files=["res://.godot/imported/trashBag.png-36d9a40a6806da9c307f0f1de00e520c.ctex"]
 
 [params]
 

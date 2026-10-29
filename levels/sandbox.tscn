@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://by7eioic034ei"]
 
-[ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://scenes/objects/trash.tscn" id="1_h320y"]
-[ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://assets/textures/objects/trash-sheet.png" id="2_b4sxl"]
-[ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://scenes/entities/player.tscn" id="2_xf1sy"]
-[ext_resource type="Script" uid="uid://ycdfochylwib" path="res://scripts/resources/trash_data.gd" id="3_qm7gn"]
-[ext_resource type="PackedScene" uid="uid://dp6dnuacwxj60" path="res://scenes/objects/trash_can.tscn" id="3_xf1sy"]
+[ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://objects/trash/trash.tscn" id="1_h320y"]
+[ext_resource type="Texture2D" uid="uid://ery46pc4n7b7" path="res://objects/shared/trash-sheet.png" id="2_b4sxl"]
+[ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://entities/player/player.tscn" id="2_xf1sy"]
+[ext_resource type="Script" uid="uid://ycdfochylwib" path="res://resources/trash_data.gd" id="3_qm7gn"]
+[ext_resource type="PackedScene" uid="uid://dp6dnuacwxj60" path="res://objects/trash_can/trash_can.tscn" id="3_xf1sy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4lrq"]
 atlas = ExtResource("2_b4sxl")
