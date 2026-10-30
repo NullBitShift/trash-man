@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0ghshitwvpmo" path="res://objects/trash_can/trash_can.gd" id="1_m16y3"]
 [ext_resource type="Texture2D" uid="uid://ckf78b48hu873" path="res://objects/trash_can/TrashCanFiller.png" id="1_tcfh6"]
+[ext_resource type="PackedScene" uid="uid://bnlt4i2gc1kl8" path="res://vfx/coin_pop/coin_pop.tscn" id="2_4dn1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m16y3"]
 atlas = ExtResource("1_tcfh6")
@@ -133,11 +134,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnma5"]
 size = Vector2(21, 30)
 
-[node name="TrashCan" type="Area2D" unique_id=946715010 node_paths=PackedStringArray("animation_sprite") groups=["trash_can"]]
+[node name="TrashCan" type="Area2D" unique_id=946715010 node_paths=PackedStringArray("animation_sprite", "coin_pop_offset") groups=["trash_can"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_m16y3")
 animation_sprite = NodePath("AnimatedSprite2D")
+coin_pop_scene = ExtResource("2_4dn1q")
+coin_pop_offset = NodePath("Marker2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1629528647]
 texture_filter = 1
@@ -150,5 +153,8 @@ speed_scale = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1819759539]
 position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_rnma5")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=254874678]
+position = Vector2(0, -15)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

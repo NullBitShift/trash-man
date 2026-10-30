@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bnlt4i2gc1kl8"]
+
+[ext_resource type="Texture2D" uid="uid://dlukl5cifcdip" path="res://vfx/coin_pop/trash_coin_pop_sheet.png" id="1_3a155"]
+[ext_resource type="Script" uid="uid://bnq3qp2sfjx6p" path="res://vfx/coin_pop/coin_pop.gd" id="2_u0isy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0isy"]
+atlas = ExtResource("1_3a155")
+region = Rect2(0, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2204"]
+atlas = ExtResource("1_3a155")
+region = Rect2(23, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gm8u"]
+atlas = ExtResource("1_3a155")
+region = Rect2(46, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i77i"]
+atlas = ExtResource("1_3a155")
+region = Rect2(69, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r25t8"]
+atlas = ExtResource("1_3a155")
+region = Rect2(92, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuoqi"]
+atlas = ExtResource("1_3a155")
+region = Rect2(115, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpbe6"]
+atlas = ExtResource("1_3a155")
+region = Rect2(138, 0, 23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vqb4"]
+atlas = ExtResource("1_3a155")
+region = Rect2(161, 0, 23, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhypo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0isy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2204")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gm8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i77i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r25t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuoqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpbe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vqb4")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=872424755]
+sprite_frames = SubResource("SpriteFrames_nhypo")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_u0isy")
+duration = 1.5

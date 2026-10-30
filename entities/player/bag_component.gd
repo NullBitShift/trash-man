@@ -28,5 +28,5 @@ func deposit_trash(trash_can: TrashCan) -> void:
 			var thrown_trash = thrown_trash_scene.instantiate() as ThrownTrash
 			trash_can.add_child(thrown_trash)
 			thrown_trash.setup(trash_data.icon, global_position, trash_can.global_position)
-			# TODO: add coin
+			trash_can.pop_coin()
 			trash_can.trigger_cooldown()
