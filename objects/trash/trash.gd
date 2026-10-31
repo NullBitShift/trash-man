@@ -1,6 +1,8 @@
 class_name Trash
 extends Area2D
 
+signal picked_up(data: TrashData)
+
 @export var trash_data: TrashData
 @export var sprite_node: Sprite2D 
 @export var collision: CollisionShape2D
@@ -33,5 +35,7 @@ func pickup(bag_opening: Marker2D):
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	tween.tween_property(self, "scale", shrink_scale, duration)
-	
-	tween.chain().tween_callback(queue_free)
+	tween.chain().tween_callback(func():
+		picked_up.emit(trash_data)
+		queue_free()
+	)	

@@ -14,9 +14,15 @@ func _on_area_entered(area: Area2D) -> void:
 		call_deferred("deposit_trash", area as TrashCan)
 
 func collect_trash(trash: Trash) -> void:
-	trash_collected.append(trash.trash_data)
+	if not trash.picked_up.is_connected(_on_trash_picked_up):
+		trash.picked_up.connect(_on_trash_picked_up, CONNECT_ONE_SHOT)
 	trash.pickup(bag_opening)
 
+func _on_trash_picked_up(data: TrashData) -> void:
+	if trash_collected == null:
+		trash_collected = []
+	trash_collected.append(data)
+	
 func deposit_trash(trash_can: TrashCan) -> void:
 	if trash_can.has_method("trigger_cooldown"):
 		if trash_can.animation_is_playing():
