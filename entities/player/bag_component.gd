@@ -22,17 +22,16 @@ func _on_trash_picked_up(data: TrashData) -> void:
 	if trash_collected == null:
 		trash_collected = []
 	trash_collected.append(data)
-	
+
 func deposit_trash(trash_can: TrashCan) -> void:
-	if trash_can.has_method("trigger_cooldown"):
-		if trash_can.animation_is_playing():
-			return
-		else:
-			var trash_data = trash_collected.pop_back()
-			if trash_data == null:
-				return
-			var thrown_trash = thrown_trash_scene.instantiate() as ThrownTrash
-			trash_can.add_child(thrown_trash)
-			thrown_trash.setup(trash_data.icon, global_position, trash_can.global_position)
-			trash_can.pop_coin()
-			trash_can.trigger_cooldown()
+	if trash_collected == null or trash_collected.is_empty():
+		return
+
+	if trash_can.is_in_cooldown():
+		return
+
+	var trash_data = trash_collected.back()
+	var success = trash_can.deposit_trash(trash_data, global_position, thrown_trash_scene)
+
+	if success:
+		trash_collected.pop_back()
