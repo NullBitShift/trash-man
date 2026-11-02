@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vha0yccvxm0c" path="res://entities/player/TrashMan.png" id="1_8fjmc"]
 [ext_resource type="Script" uid="uid://b5a7msagf8jqx" path="res://entities/player/player_controller.gd" id="2_8fjmc"]
 [ext_resource type="Script" uid="uid://btphie4bjdhh8" path="res://resources/movement_strategy.gd" id="3_1ie0h"]
-[ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://entities/player/bag_component.gd" id="4_5u6hq"]
+[ext_resource type="Script" uid="uid://bat48hu7lrnlh" path="res://entities/player/collection_component.gd" id="4_5u6hq"]
 [ext_resource type="Texture2D" uid="uid://bu1snsn4rkvpk" path="res://entities/player/trashBag.png" id="4_42nxq"]
 [ext_resource type="PackedScene" uid="uid://dheuh6pxeg3mv" path="res://objects/thrown_trash/thrown_trash.tscn" id="5_d4qa6"]
 
@@ -36,14 +36,14 @@ script = ExtResource("2_8fjmc")
 player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
 
-[node name="BagComponent" type="Area2D" parent="." unique_id=1166233139 node_paths=PackedStringArray("bag_opening") groups=["bag"]]
+[node name="CollectionComponent" type="Area2D" parent="." unique_id=1166233139 node_paths=PackedStringArray("bag_opening") groups=["bag"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_5u6hq")
 bag_opening = NodePath("BagOpening")
 thrown_trash_scene = ExtResource("5_d4qa6")
 
-[node name="Sprite2D" type="Sprite2D" parent="BagComponent" unique_id=143506196]
+[node name="Sprite2D" type="Sprite2D" parent="CollectionComponent" unique_id=143506196]
 texture_filter = 1
 position = Vector2(10, -3)
 scale = Vector2(0.1, 0.5)
@@ -52,11 +52,11 @@ offset = Vector2(-6.95, 10.025)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BagComponent" unique_id=2131317022]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionComponent" unique_id=2131317022]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_5u6hq")
 
-[node name="BagOpening" type="Marker2D" parent="BagComponent" unique_id=738301586]
+[node name="BagOpening" type="Marker2D" parent="CollectionComponent" unique_id=738301586]
 position = Vector2(10, -3)
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
@@ -67,4 +67,4 @@ visible = false
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_08t41")
 
-[connection signal="area_entered" from="BagComponent" to="BagComponent" method="_on_area_entered"]
+[connection signal="area_entered" from="CollectionComponent" to="CollectionComponent" method="_on_area_entered"]
