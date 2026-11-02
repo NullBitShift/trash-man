@@ -3,6 +3,7 @@ extends Area2D
 @export var collection_marker: Marker2D
 @export var thrown_trash_scene: PackedScene
 @export var max_trash_capacity: int = 1
+@export var held_item: Sprite2D
 
 var trash_collected: Array[TrashData]
 
@@ -31,6 +32,7 @@ func _on_trash_picked_up(data: TrashData) -> void:
 	if trash_collected == null:
 		trash_collected = []
 	trash_collected.append(data)
+	held_item.texture = data.icon
 
 func deposit_trash(trash_can: TrashCan) -> void:
 	if trash_collected == null or trash_collected.is_empty():
@@ -44,3 +46,7 @@ func deposit_trash(trash_can: TrashCan) -> void:
 
 	if success:
 		trash_collected.pop_back()
+		if not trash_collected.is_empty():
+			held_item.texture = trash_collected.back().icon
+		else:
+			held_item.texture = null

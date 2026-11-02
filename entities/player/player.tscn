@@ -35,12 +35,14 @@ script = ExtResource("2_8fjmc")
 player_base_node = NodePath("..")
 current_strategy = SubResource("Resource_nhypo")
 
-[node name="CollectionComponent" type="Area2D" parent="." unique_id=1166233139 node_paths=PackedStringArray("collection_marker") groups=["bag"]]
+[node name="CollectionComponent" type="Area2D" parent="." unique_id=1166233139 node_paths=PackedStringArray("collection_marker", "held_item") groups=["bag"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_5u6hq")
 collection_marker = NodePath("CollectionMarker")
 thrown_trash_scene = ExtResource("5_d4qa6")
+max_trash_capacity = 2
+held_item = NodePath("CollectionMarker/HeldItem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionComponent" unique_id=2131317022]
 position = Vector2(0, 1.5)
@@ -48,6 +50,8 @@ shape = SubResource("RectangleShape2D_5u6hq")
 
 [node name="CollectionMarker" type="Marker2D" parent="CollectionComponent" unique_id=738301586]
 position = Vector2(10, -3)
+
+[node name="HeldItem" type="Sprite2D" parent="CollectionComponent/CollectionMarker" unique_id=363621426]
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=491004845 groups=["player"]]
 visible = false
