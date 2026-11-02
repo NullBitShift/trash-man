@@ -2,6 +2,7 @@ extends Area2D
 
 @export var bag_opening: Marker2D
 @export var thrown_trash_scene: PackedScene
+@export var max_trash_capacity: int = 1
 
 var trash_collected: Array[TrashData]
 
@@ -13,7 +14,15 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("trash_can"):
 		call_deferred("deposit_trash", area as TrashCan)
 
+func is_collection_full() -> bool:
+	if trash_collected == null:
+		return false
+	return trash_collected.size() >= max_trash_capacity
+
 func collect_trash(trash: Trash) -> void:
+	if is_collection_full():
+		return
+		
 	if not trash.picked_up.is_connected(_on_trash_picked_up):
 		trash.picked_up.connect(_on_trash_picked_up, CONNECT_ONE_SHOT)
 	trash.pickup(bag_opening)
@@ -35,3 +44,4 @@ func deposit_trash(trash_can: TrashCan) -> void:
 
 	if success:
 		trash_collected.pop_back()
+
