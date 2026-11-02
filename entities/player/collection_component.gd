@@ -6,6 +6,7 @@ extends Area2D
 @export var held_item: Sprite2D
 
 var trash_collected: Array[TrashData] = []
+var incoming_trash_count: int = 0
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("trash"):
@@ -14,16 +15,19 @@ func _on_area_entered(area: Area2D) -> void:
 		call_deferred("deposit_trash", area as TrashCan)
 
 func is_collection_full() -> bool:
-	return trash_collected.size() >= max_trash_capacity
+	return trash_collected.size() + incoming_trash_count >= max_trash_capacity
 
 func collect_trash(trash: Trash) -> void:
 	if is_collection_full(): return
 	
+	incoming_trash_count += 1
+
 	if not trash.picked_up.is_connected(_on_trash_picked_up):
 		trash.picked_up.connect(_on_trash_picked_up, CONNECT_ONE_SHOT)
 	trash.pickup(collection_marker)
 
 func _on_trash_picked_up(data: TrashData) -> void:
+	incoming_trash_count = max(incoming_trash_count - 1, 0)
 	trash_collected.append(data)
 	held_item.texture = data.icon
 
