@@ -9,6 +9,7 @@ extends Area2D
 func _ready() -> void:
 	if not trash_collected:
 		trash_collected = CollectionData.new()
+	_update_held_item()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("trash"):
@@ -27,10 +28,6 @@ func collect_trash(trash: Trash) -> void:
 		trash.picked_up.connect(_on_trash_picked_up, CONNECT_ONE_SHOT)
 	trash.pickup(collection_marker)
 
-func _on_trash_picked_up(data: TrashData) -> void:
-	trash_collected.add_trash(data)
-	held_item.texture = data.icon
-
 func deposit_trash(trash_can: TrashCan) -> void:
 	if trash_collected.is_empty() or trash_can.is_in_cooldown():
 		return
@@ -38,8 +35,15 @@ func deposit_trash(trash_can: TrashCan) -> void:
 	var item = trash_collected.get_top_trash()
 	if trash_can.deposit_trash(item, global_position, thrown_trash_scene):
 		trash_collected.remove_trash()
-		var top_trash = trash_collected.get_top_trash()
-		held_item.texture = top_trash.icon if top_trash else null
+		_update_held_item()
+		
+func _update_held_item() -> void:
+	var top_trash = trash_collected.get_top_trash()
+	held_item.texture = top_trash.icon if top_trash else null
+
+func _on_trash_picked_up(data: TrashData) -> void:
+	trash_collected.add_trash(data)
+	_update_held_item()
 
 func _play_full_feedback() -> void:
 	if not held_item:
