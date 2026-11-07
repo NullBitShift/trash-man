@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bgmoqarhbcox1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xlt4b"]
+
+[node name="TrashSpawner" type="Polygon2D" unique_id=576256777]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(319, -86, 619, 62, 482, 334, 28, 232, 15, 40)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
+navigation_polygon = SubResource("NavigationPolygon_xlt4b")
