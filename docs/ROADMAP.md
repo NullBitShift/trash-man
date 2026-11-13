@@ -13,7 +13,9 @@ A casual, cozy, non-stressful clean-up game where players pick up trash, deposit
 - [x] Trash collection mechanics (`CollectionComponent`, `CollectionData`) with max-capacity enforcement
 - [x] Trash can deposition, cooldowns, and coin-pop VFX (`TrashCan`, `ProgressionData`)
 - [x] Sandbox testing environment and clean project directory structure
-- [ ] **Trash Spawner & Variants:** Implement an automated spawner in the sandbox that randomly selects from the 3 trash sprite variants over time.
+- [x] **Trash Spawner & Variants:** Implement an automated spawner in the sandbox that randomly selects from the 3 trash sprite variants over time.
+- [ ] **Shared Play Area:** Extract the boundary polygon and `NavigationRegion2D` from `TrashSpawner` into a shared play-area node for spawning and player navigation.
+- [ ] **Player Boundary Confinement:** Constrain player movement to the shared play-area boundaries.
 - [ ] **Bag Scale Visual Cue:** Add dynamic scale manipulation to the player's bag component to reflect inventory fill percentage visually.
 - [ ] **Barebones Coin HUD:** Implement a clean on-screen coin counter wired to `ProgressionData`.
 
