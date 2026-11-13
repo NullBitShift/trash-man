@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgmoqarhbcox1"]
 
 [ext_resource type="Script" uid="uid://bovpt8fg1p3jh" path="res://objects/trash_spawner/trash_spawner.gd" id="1_liguh"]
+[ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://objects/trash/trash.tscn" id="2_kiqtr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xlt4b"]
 
@@ -8,6 +9,7 @@
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(319, 160, 619, 62, 482, 334, 28, 232, 15, 40)
 script = ExtResource("1_liguh")
+trash_scene = ExtResource("2_kiqtr")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
 navigation_polygon = SubResource("NavigationPolygon_xlt4b")
