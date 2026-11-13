@@ -1,9 +1,18 @@
 extends Polygon2D
 
+@export var spawn_interval: float = 5.0
+
 @onready var navigation_region: NavigationRegion2D = $NavigationRegion2D
+@onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready() -> void:
 	update_navigation_polygon()
+	start_spawn_timer()
+	
+func start_spawn_timer() -> void:
+	spawn_timer.wait_time = spawn_interval
+	spawn_timer.one_shot = false
+	spawn_timer.start()
 
 func update_navigation_polygon() -> void:
 	var new_navigation_polygon = NavigationPolygon.new()
@@ -20,5 +29,4 @@ func get_random_spawn_point() -> Vector2:
 		navigation_region.navigation_layers,
 		true)
 
-#TODO create a timer to spawn trash at intervals
 #TODO implement the actual trash spawning logic
