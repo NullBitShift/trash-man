@@ -14,3 +14,7 @@ navigation_polygon = SubResource("NavigationPolygon_xlt4b")
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=666322336]
 wait_time = 5.0
+
+[node name="SpawnedTrash" type="Node2D" parent="." unique_id=2082038790]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
