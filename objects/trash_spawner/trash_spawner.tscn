@@ -2,6 +2,46 @@
 
 [ext_resource type="Script" uid="uid://bovpt8fg1p3jh" path="res://objects/trash_spawner/trash_spawner.gd" id="1_liguh"]
 [ext_resource type="PackedScene" uid="uid://pkoyfxa11pab" path="res://objects/trash/trash.tscn" id="2_kiqtr"]
+[ext_resource type="Script" uid="uid://ycdfochylwib" path="res://resources/trash_data.gd" id="3_rra8s"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hbwrd"]
+load_path = "res://.godot/imported/trash-sheet.png-664f9cb14dd327000cc59c19fe32bfee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o026g"]
+atlas = SubResource("CompressedTexture2D_hbwrd")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="Resource" id="Resource_asic0"]
+script = ExtResource("3_rra8s")
+item_name = "Cup"
+icon = SubResource("AtlasTexture_o026g")
+metadata/_custom_type_script = "uid://ycdfochylwib"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rya6q"]
+load_path = "res://.godot/imported/trash-sheet.png-664f9cb14dd327000cc59c19fe32bfee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxxhr"]
+atlas = SubResource("CompressedTexture2D_rya6q")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="Resource" id="Resource_mh38x"]
+script = ExtResource("3_rra8s")
+item_name = "Apple"
+icon = SubResource("AtlasTexture_vxxhr")
+metadata/_custom_type_script = "uid://ycdfochylwib"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ufqwv"]
+load_path = "res://.godot/imported/trash-sheet.png-664f9cb14dd327000cc59c19fe32bfee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pdxw"]
+atlas = SubResource("CompressedTexture2D_ufqwv")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="Resource" id="Resource_niyv7"]
+script = ExtResource("3_rra8s")
+item_name = "Can"
+icon = SubResource("AtlasTexture_5pdxw")
+metadata/_custom_type_script = "uid://ycdfochylwib"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xlt4b"]
 
@@ -10,6 +50,7 @@ color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(319, 160, 619, 62, 482, 334, 28, 232, 15, 40)
 script = ExtResource("1_liguh")
 trash_scene = ExtResource("2_kiqtr")
+trash_data_choices = Array[ExtResource("3_rra8s")]([SubResource("Resource_asic0"), SubResource("Resource_mh38x"), SubResource("Resource_niyv7")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
 navigation_polygon = SubResource("NavigationPolygon_xlt4b")
