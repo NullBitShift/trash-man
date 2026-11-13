@@ -11,3 +11,6 @@ script = ExtResource("1_liguh")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
 navigation_polygon = SubResource("NavigationPolygon_xlt4b")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=666322336]
+wait_time = 5.0
