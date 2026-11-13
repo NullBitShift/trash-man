@@ -43,21 +43,11 @@ item_name = "Can"
 icon = SubResource("AtlasTexture_5pdxw")
 metadata/_custom_type_script = "uid://ycdfochylwib"
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xlt4b"]
-
-[node name="TrashSpawner" type="Polygon2D" unique_id=576256777]
-color = Color(0, 1, 0, 1)
-polygon = PackedVector2Array(319, 160, 619, 62, 482, 334, 28, 232, 15, 40)
+[node name="TrashSpawner" type="Timer" unique_id=2089978074]
 script = ExtResource("1_liguh")
 trash_scene = ExtResource("2_kiqtr")
 trash_data_choices = Array[ExtResource("3_rra8s")]([SubResource("Resource_asic0"), SubResource("Resource_mh38x"), SubResource("Resource_niyv7")])
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
-navigation_polygon = SubResource("NavigationPolygon_xlt4b")
-
-[node name="SpawnTimer" type="Timer" parent="." unique_id=666322336]
-wait_time = 5.0
-
 [node name="SpawnedTrash" type="Node2D" parent="." unique_id=2082038790]
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="." to="." method="_on_spawn_timer_timeout"]
