@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d1r2tg1wgenp0"]
+
+[ext_resource type="Script" uid="uid://ced140rrnv0ys" path="res://objects/play_area/play_area.gd" id="1_d42my"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xlt4b"]
+
+[node name="PlayArea" type="Polygon2D" unique_id=576256777]
+z_index = -2
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(0, 0, 500, 0, 500, 250, 0, 250)
+script = ExtResource("1_d42my")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1036703116]
+navigation_polygon = SubResource("NavigationPolygon_xlt4b")
