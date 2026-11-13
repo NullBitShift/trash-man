@@ -2,6 +2,7 @@ extends Polygon2D
 
 @export var spawn_interval: float = 5.0
 @export var trash_scene: PackedScene
+@export var trash_data_choices: Array[TrashData]
 
 @onready var navigation_region: NavigationRegion2D = $NavigationRegion2D
 @onready var spawn_timer: Timer = $SpawnTimer
@@ -10,7 +11,10 @@ extends Polygon2D
 func _ready() -> void:
 	update_navigation_polygon()
 	start_spawn_timer()
-	
+
+func pick_random_trash_data() -> TrashData:
+	return trash_data_choices[randi() % trash_data_choices.size()]
+
 func start_spawn_timer() -> void:
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.one_shot = false
@@ -34,6 +38,8 @@ func get_random_spawn_point() -> Vector2:
 func _on_spawn_timer_timeout() -> void:
 	var spawn_point: Vector2 = get_random_spawn_point()
 	var trash_instance: Node2D = trash_scene.instantiate()
+	var trash_data: TrashData = pick_random_trash_data()
 	trash_instance.position = spawn_point
+	trash_instance.trash_data = trash_data
 	trash_container.add_child(trash_instance)
 	spawn_timer.start()
