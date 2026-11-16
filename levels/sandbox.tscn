@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnw5vqgtuqsf1" path="res://entities/player/player.tscn" id="2_xf1sy"]
 [ext_resource type="PackedScene" uid="uid://bgmoqarhbcox1" path="res://objects/trash_spawner/trash_spawner.tscn" id="3_85hcc"]
 [ext_resource type="PackedScene" uid="uid://dp6dnuacwxj60" path="res://objects/trash_can/trash_can.tscn" id="3_xf1sy"]
+[ext_resource type="PackedScene" uid="uid://d1r2tg1wgenp0" path="res://objects/play_area/play_area.tscn" id="4_7he1i"]
 
 [node name="Sandbox" type="Node2D" unique_id=294289494]
 
@@ -12,7 +13,7 @@ position = Vector2(204, 92)
 [node name="TrashCan" parent="." unique_id=946715010 instance=ExtResource("3_xf1sy")]
 position = Vector2(251, 180)
 
-[node name="TrashSpawner" parent="." unique_id=576256777 instance=ExtResource("3_85hcc")]
-z_index = -1
-color = Color(0, 0.6117647, 0, 1)
-polygon = PackedVector2Array(0, 0, 500, 0, 500, 250, 0, 250)
+[node name="TrashSpawner" parent="." unique_id=576256777 node_paths=PackedStringArray("play_area") instance=ExtResource("3_85hcc")]
+play_area = NodePath("../PlayArea")
+
+[node name="PlayArea" parent="." unique_id=1493667797 instance=ExtResource("4_7he1i")]
